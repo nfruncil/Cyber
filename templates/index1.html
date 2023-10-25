@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applicazione RSA per Bob e Lisa</title>
+</head>
+<body>
+    <h2>Generatore Chiavi RSA per Bob e Crittografia/Decrittografia del Messaggio per Bob da parte di Lisa</h2>
+    <form method="post">
+        <label for="p">Inserisci il primo numero primo (p) per la chiave di Bob:</label><br>
+        <input type="number" id="p" name="p" required><br><br>
+        <label for="q">Inserisci il secondo numero primo (q) per la chiave di Bob:</label><br>
+        <input type="number" id="q" name="q" required><br><br>
+        <label for="message">Inserisci il messaggio o il messaggio crittografato da decifrare:</label><br>
+        <input type="text" id="message" name="message" required><br><br>
+        <label for="operation">Seleziona un'operazione:</label><br>
+        <input type="radio" id="encrypt" name="operation" value="encrypt" checked>
+        <label for="encrypt">Cifratura</label><br>
+        <input type="radio" id="decrypt" name="operation" value="decrypt">
+        <label for="decrypt">Decifratura</label><br><br>
+        <input type="submit" value="Esegui">
+    </form>
+    {% if public %}
+        <h3>Chiave pubblica di Bob: {{ public }}</h3>
+        <h3>Chiave privata di Bob: {{ private }}</h3>
+        <h3>Messaggio originale di Lisa per Bob: {{ message }}</h3>
+        {% if operation == 'encrypt' %}
+            <h3>Risultato della crittografia: {{ result }}</h3>
+        {% elif operation == 'decrypt' %}
+            <h3>Messaggio decifrato: {{ result }}</h3>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

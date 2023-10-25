@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cifratura e Decifratura di Cesare</title>
+</head>
+<body>
+    <h2>Cifratura e Decifratura di Cesare</h2>
+    <form method="post">
+        <label for="operation">Seleziona un'operazione:</label><br>
+        <input type="radio" id="encrypt" name="operation" value="encrypt" checked>
+        <label for="encrypt">Cifratura</label><br>
+        <input type="radio" id="decrypt" name="operation" value="decrypt">
+        <label for="decrypt">Decifratura</label><br><br>
+        <label for="word">Parola:</label><br>
+        <input type="text" id="word" name="word"><br><br>
+        <label for="key">Chiave di cifratura/decifratura:</label><br>
+        <input type="number" id="key" name="key" min="1" required><br><br>
+        <input type="submit" value="Esegui">
+    </form>
+    {% if result %}
+        <h3>Risultato: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>
